@@ -1,0 +1,87 @@
+$heading-color: #000000;
+$heading-margin-top: 24px;
+
+// Headings Size
+$heading-font-size-heading: 4.8rem; // 48px by default
+$heading-font-size-h1: 3rem; // 30px
+$heading-font-size-h2: 2.4rem; // 24px
+$heading-font-size-h3: 2rem; // 20px
+$heading-font-size-h4: 1.8rem; // 18px
+$heading-font-size-h5: 1.6rem; // 16px
+$heading-font-size-h6: 1.5rem; // 15px
+
+$heading-breakpoint-small: 768px;
+
+.heading,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+	font-weight: bold;
+	color: $heading-color;
+	text-rendering: optimizeLegibility;
+}
+
+.heading,
+.h1 {
+	margin-bottom: 16px;
+}
+
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+	margin-bottom: 8px;
+}
+
+.heading,
+.h1,
+.h2,
+.h3,
+.h4 {
+	margin-left: -1px;
+}
+
+.heading {
+	font-size: $heading-font-size-heading;
+	line-height: 56px;
+}
+.h1 {
+	font-size: $heading-font-size-h1;
+	line-height: 32px;
+}
+.h2 {
+	font-size: $heading-font-size-h2;
+	line-height: 32px;
+}
+.h3 {
+	font-size: $heading-font-size-h3;
+	line-height: 24px;
+}
+.h4 {
+	font-size: $heading-font-size-h4;
+	line-height: 24px;
+}
+.h5 {
+	font-size: $heading-font-size-h5;
+	line-height: 24px;
+}
+.h6 {
+	font-size: $heading-font-size-h6;
+	line-height: 24px;
+	text-transform: uppercase;
+}
+
+@media (max-width: $heading-breakpoint-small) {
+
+	$heading-font-size-heading: 3rem; // 48px by default
+
+	.heading {
+		font-size: $heading-font-size-heading;
+		line-height: 32px;
+	}
+
+}

@@ -1,0 +1,16 @@
+@@include('src/app/layouts/partials/common/head.html', {
+    "title": "Index page",
+    "meta-description": "Meta Description",
+    "meta-author": "Meta Author",
+    "pack": "site",
+    "styles": "styles"
+})
+
+<div class="wrapper">
+    @@include('src/app/layouts/partials/styleguide/content.html')
+</div>
+
+@@include('src/app/layouts/partials/common/foot.html', {
+    "pack": "site",
+    "scripts": "scripts"
+})

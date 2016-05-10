@@ -1,0 +1,345 @@
+$table-breakpoint-small: 768px;
+
+$table-base-line: 24px;
+
+$table-font-size: 94%; // 14px or 94% by default
+$table-font-size-small: 86%; // 13px or 86% by default
+
+$table-border-color: #e9e8e8;
+$table-hovered-color: rgba(168,168,168,0.07);
+$table-selected-color: $table-hovered-color;
+$table-stripped-color: $table-hovered-color;
+$table-selected-color-hover: $table-hovered-color;
+
+/* =Tables
+-----------------------------------------------------------------------------*/
+table {
+	max-width: 100%;
+	width: 100%;
+	empty-cells: show;
+
+	caption {
+		text-transform: uppercase;
+		padding: 0;
+		color: #000;
+		font-size: 11px;
+		font-weight: bold;
+	}
+
+	th,
+	td {
+		font-size: $table-font-size;
+		border-bottom: 1px solid rgba(0, 0, 0, .04);
+		padding: 16px;
+		padding-bottom: 15px;
+		&:first-child {
+			padding-left: 0;
+		}
+		&:last-child {
+			padding-right: 0;
+		}
+	}
+
+	tfoot th,
+	tfoot td {
+		color: rgba(0, 0, 0, .5);
+	}
+}
+
+table.table-bordered {
+
+	margin-top: -1px;
+
+	& td,
+	& th {
+		border: 1px solid rgba(0, 0, 0, .03);
+	}
+	& caption {
+		padding-left: 16px;
+	}
+}
+table.table-bordered,
+table.table-stripped {
+	& td,
+	& th {
+		&:first-child {
+			padding-left: 16px;
+		}
+		&:last-child {
+			padding-right: 16px;
+		}
+	}
+}
+table.table-simple {
+	& td,
+	& th,
+	& caption {
+		border: none;
+		padding-left: 0;
+	}
+	& td,
+	& th {
+		padding-bottom: 16px;
+	}
+}
+table.table-flat {
+	& td,
+	& th,
+	& caption {
+		border: none;
+		padding: 0;
+	}
+}
+table.table-stroked {
+	& td,
+	& th {
+		border-bottom: 1px solid rgba(0, 0, 0, .03);
+	}
+}
+table.table-stripped tbody tr:nth-child(odd) td {
+	background: $table-stripped-color;
+}
+
+@media (max-width: $table-breakpoint-small) {
+
+	table.table-responsive {
+
+		border: 0;
+
+		& thead {
+			display: none;
+		}
+		& tr {
+			display: block;
+			border-bottom: 2px solid rgba(0, 0, 0, .1);
+		}
+
+		& td,
+		& td:last-child,
+		& td:first-child {
+			display: block;
+			text-align: right;
+			padding: 10px;
+		}
+
+		&.table-flat td {
+			padding: 0;
+		}
+
+		&.table-bordered td:last-child,
+		& td:last-child {
+			border-bottom: 0;
+		}
+
+		& td:before {
+			content: attr(data-label);
+			float: left;
+			text-transform: uppercase;
+			font-size: $table-font-size-small;
+			font-weight: bold;
+			line-height: 2;
+		}
+	}
+
+}
+
+// .table {
+//     max-width: 100%;
+//     width: 100%;
+//     empty-cells: show;
+//     margin-bottom: $table-base-line;
+//
+//     &_no_bottom {
+//         margin-bottom: 0;
+//     }
+//
+//     &_bordered {
+//
+//         .table {
+//             &__cell {
+//                 border: none;
+//                 border: 1px solid $table-border-color;
+//             }
+//         }
+//
+//     }
+//
+//     &_flat {
+//
+//         .table {
+//             &__header {
+//
+//                 .table {
+//                     &__cell {
+//                         border: none;
+//                         padding: 0;
+//                     }
+//                 }
+//
+//                 &_flat {
+//                     padding-bottom: 0;
+//                 }
+//
+//             }
+//             &__cell {
+//                 border: none;
+//                 padding-left: 0;
+//                 padding-bottom: 0;
+//             }
+//         }
+//
+//     }
+//
+//     &_hovered {
+//         .table {
+//             &__row {
+//                 &:hover {
+//                     background-color: $table-hovered-color;
+//                     cursor: pointer;
+//
+//                     .note {
+//                         // background-color: fade-out($color-turquoise, 0.7);
+//                         // &__all {
+//                         //     background-color: fade-out($color-turquoise, 0.7);
+//                         // }
+//                         &__button {
+//                             border-color: #C5D2D2;
+//                             color: #4F4D4D;
+//                             &:hover {
+//                                 border-color: #D8D8D8;
+//                             }
+//                         }
+//                         // &__date {
+//                         //     color: #94AFAF;
+//                         // }
+//                     }
+//
+//                 }
+//                 &_selected {
+//                     background-color: $table-selected-color;
+//
+//                     .note {
+//                         background-color: fade-out($color-turquoise, 0.7);
+//                         &__all {
+//                             background-color: fade-out($color-turquoise, 0.7);
+//                         }
+//                         &__button {
+//                             border-color: #C5D2D2;
+//                             color: #4F4D4D;
+//                             &:hover {
+//                                 border-color: #D8D8D8;
+//                                 color: #505050;
+//                             }
+//                         }
+//                         &__date {
+//                             color: #94AFAF;
+//                         }
+//                     }
+//
+//                     &:hover {
+//                         background-color: $table-selected-color-hover;
+//                         cursor: pointer;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+//
+//     &_hide {
+//         display: none;
+//     }
+//
+//     &_margin_bottom {
+//         margin-bottom: 100px;
+//     }
+//     &__caption {
+//         // $include light();
+//         color: #646464;
+//         text-transform: uppercase;
+//     }
+//     &__bigheader {
+//         padding-bottom: 10px;
+//         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+//     }
+//     &__bigtitle {
+//         font-size: 21px;
+//         display: inline-block;
+//         $include regular();
+//         margin-top: 10px;
+//         margin-bottom: 5px;
+//     }
+//     &__header {
+//         .table {
+//             &__cell {
+//                 &:first-child {
+//                     padding: 10px 0;
+//                 }
+//                 $include semibold();
+//                 color: #4A4A4A;
+//                 // // $include light();
+//                 font-size: 15px;
+//                 color: #646464;
+//                 // text-transform: uppercase;
+//                 border: none;
+//                 border-top: 1px solid $table-border-color;
+//                 border-bottom: 1px solid $table-border-color;
+//                 // padding: $base-line / 2 $base-line / 1.5;
+//                 padding: 10px 14px;
+//             }
+//             &__row {
+//                 &:hover {
+//                     background-color: transparent;
+//                     cursor: default;
+//                 }
+//                 &_selected {
+//                     background-color: transparent;
+//                     &:hover {
+//                         background-color: transparent;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+//     &__footer {}
+//     // &__row {
+//     //     &:hover {}
+//     //     &_selected {
+//     //         backcolor: fade-out($color-turquoise, .93);
+//     //         &:hover {
+//     //             backcolor: fade-out($color-turquoise, .87);
+//     //         }
+//     //     }
+//     // }
+//     &__cell {
+//         color: #4A4A4A;
+//         &:first-child {
+//             padding: 10px 0;
+//         }
+//         border-bottom: 1px solid $table-border-color;
+//         // padding: $base-line / 2 $base-line / 1.5;
+//         padding: 10px 14px;
+//         vertical-align: middle;
+//         &_day {
+//             padding: 0;
+//             width: (100/7) + %;
+//         }
+//         &_weekend {
+//             background-color: rgba(227, 229, 227, 0.25);
+//         }
+//         &_align {
+//             &_top {
+//                 vertical-align: top;
+//             }
+//             &_right {
+//                 text-align: right;
+//             }
+//         }
+//     }
+//     &__inner {}
+//     &__caption {
+//         text-transform: uppercase;
+//         padding: 0 $base-line / 1.5;
+//         color: rgba(0, 0, 0, .4);
+//         font-size: $font-size-small;
+//     }
+// }

@@ -1,0 +1,100 @@
+/// Convert one unit into another
+/// @author Hugo Giraudel
+/// @param {Number} $value - Initial value
+/// @param {String} $unit - Desired unit
+/// @return {Number}
+/// @throw Error if `$unit` does not exist or if units are incompatible.
+@function convert-unit($value, $unit) {
+  $units: (
+    'px': 0px,
+    'cm': 0cm,
+    'mm': 0mm,
+    '%': 0%,
+    'ch': 0ch,
+    'in': 0in,
+    'em': 0em,
+    'rem': 0rem,
+    'pt': 0pt,
+    'pc': 0pc,
+    'ex': 0ex,
+    'vw': 0vw,
+    'vh': 0vh,
+    'vmin': 0vmin,
+    'vmax': 0vmax,
+    'deg': 0deg,
+    'turn': 0turn,
+    'rad': 0rad,
+    'grad': 0grad,
+    's': 0s,
+    'ms': 0ms,
+    'Hz': 0Hz,
+    'kHz': 0kHz,
+    'dppx': 0dppx,
+    'dpcm': 0dpcm,
+    'dpi': 0dpi,
+  );
+
+  @if map-has-key($units, $unit) {
+    @return map-get($units, $unit) + $value;
+  }
+
+  @error "Unknown unit `#{$unit}`.";
+}
+
+
+// Breakpoints
+$blocks-breakpoint-small: 768px;
+$blocks-breakpoint-medium: 1024px;
+$blocks-breakpoint-large: 1200px;
+
+// Grid
+$blocks-base-line: 24px;
+
+$blocks-columns: 12;
+$blocks-width: 1128px; // pixels
+$blocks-gutter: $blocks-base-line;
+$blocks-gap: convert-unit(($blocks-gutter)/($blocks-width/100), '%');
+
+/* =Blocks
+-----------------------------------------------------------------------------*/
+.blocks {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	margin-left: -$blocks-gap;
+
+	& > div {
+		margin-left: $blocks-gap;
+		margin-bottom: $blocks-base-line;
+	}
+
+	&_cols_2 > div { width: 50% - $blocks-gap; }
+	&_cols_3 > div { width: 33.3% - $blocks-gap; }
+	&_cols_4 > div { width: 25% - $blocks-gap; }
+	&_cols_5 > div { width: 20% - $blocks-gap; }
+	&_cols_6 > div { width: 16.6% - $blocks-gap; }
+}
+
+@media (max-width: $blocks-breakpoint-small) {
+
+	.blocks {
+
+		display: block;
+		margin-left: 0;
+
+		&_cols_2 > div,
+		&_cols_3 > div,
+		&_cols_4 > div,
+		&_cols_5 > div,
+		&_cols_6 > div {
+			width: 100%;
+			margin-left: 0;
+		}
+	}
+
+}

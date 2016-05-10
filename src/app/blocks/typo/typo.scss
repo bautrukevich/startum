@@ -1,0 +1,338 @@
+// Fonts
+
+$typo-font-family-light: "proxima-nova", Helvetica, Tahoma, sans-serif !default;
+$typo-font-family-regular: "proxima-nova", Helvetica, Tahoma, sans-serif !default;
+$typo-font-family-medium: "proxima-nova", Helvetica, Tahoma, sans-serif !default;
+$typo-font-family-bold: "proxima-nova", Helvetica, Tahoma, sans-serif !default;
+
+$typo-font-family-base: $typo-font-family-regular;
+$typo-font-family-code: Menlo, Monaco, Consolas, Courier, monospace;
+
+// Main colors
+$typo-color: #202020;
+$typo-back-color: #fff;
+
+// Radius
+$typo-global-radius: 2px;
+
+// Baseline
+$typo-base-line: 24px; // 24px by default
+$typo-base-line-big: 28px; // 28px by default
+$typo-base-line-small: 20px; // 20px by default
+$typo-base-line-smaller: 16px; // 16px by default
+
+// Headings Size
+$typo-font-size-heading: 4.8rem; // 48px by default
+$typo-font-size-h1: 3rem; // 30px
+$typo-font-size-h2: 2.4rem; // 24px
+$typo-font-size-h3: 2rem; // 20px
+$typo-font-size-h4: 1.8rem; // 18px
+$typo-font-size-h5: 1.6rem; // 16px
+$typo-font-size-h6: 1.5rem; // 15px
+
+// Font Size
+$typo-font-size: 15; // 15 (px) default
+$typo-font-size-big: 120%; // 18px or 120% by default
+$typo-font-size-small: 86%; // 13px or 86% by default
+$typo-font-size-smaller: 74%; // 11px or 74%  by default
+
+// Half Margin
+$typo-margin-half: 16px;
+
+// Mark
+$typo-color-mark: #202020;
+$typo-color-mark-background: #ffd61e;
+
+// Dfn
+$typo-color-dfn-border: #202020;
+
+// Pre
+$typo-color-pre-background: rgba(0, 0, 0, .03);
+
+// Code
+$typo-color-code-background: rgba(0, 0, 0, .07);
+
+// Kbd
+$typo-color-kbd: rgba(255, 255, 255, .85);
+$typo-color-kbd-background: #202020;
+
+// Samp
+$typo-color-samp: rgba(255, 255, 255, .95);
+$typo-color-samp-background: #46a9fc;
+
+// Html
+html {
+	font-size: 62.5%;
+}
+body {
+	font-family: $typo-font-family-base;
+	font-size: $typo-font-size / 10 + 0em;
+	line-height: $typo-base-line;
+	background: $typo-back-color;
+	color: $typo-color;
+}
+
+$typo-heading-color: #000000;
+$typo-heading-margin-top: $typo-base-line;
+
+.typo {
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-weight: bold;
+		color: $typo-heading-color;
+		text-rendering: optimizeLegibility;
+	}
+
+	h1 {
+		margin-bottom: 16px;
+	}
+
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin-bottom: 8px;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4 {
+		margin-left: -1px;
+	}
+
+	h1 {
+		font-size: $typo-font-size-h1;
+		line-height: 32px;
+	}
+	h2 {
+		font-size: $typo-font-size-h2;
+		line-height: 32px;
+	}
+	h3 {
+		font-size: $typo-font-size-h3;
+		line-height: 24px;
+	}
+	h4 {
+		font-size: $typo-font-size-h4;
+		line-height: 24px;
+	}
+	h5 {
+		font-size: $typo-font-size-h5;
+		line-height: 24px;
+	}
+	h6 {
+		font-size: $typo-font-size-h6;
+		line-height: 24px;
+		text-transform: uppercase;
+	}
+
+	p,
+	ul,
+	ol,
+	dl,
+	blockquote,
+	hr,
+	pre,
+	table,
+	form,
+	figure,
+	address {
+		+ h1,
+		+ h2,
+		+ h3,
+		+ h4,
+		+ h5,
+		+ h6 {
+			margin-top: $typo-heading-margin-top;
+		}
+	}
+
+	/* =Line height and margin
+	-----------------------------------------------------------------------------*/
+	ul,
+	ol,
+	ul ul,
+	ol ol,
+	ul ol,
+	ol ul {
+		margin: 0 0 0 $typo-base-line;
+	}
+	ol ol li {
+		list-style-type: lower-alpha;
+	}
+	ol ol ol li {
+		list-style-type: lower-roman;
+	}
+	p,
+	ul,
+	ol,
+	dl,
+	blockquote,
+	hr,
+	pre,
+	table,
+	fieldset,
+	figure,
+	address,
+	output {
+		margin-bottom: $typo-margin-half;
+	}
+
+
+	/* =Quote
+	-----------------------------------------------------------------------------*/
+	blockquote {
+		font-style: italic;
+		font-size: $typo-font-size-big;
+		line-height: $typo-base-line-big;
+		padding-left: $typo-base-line;
+		border-left: 1px solid rgba(0, 0, 0, .2);
+		& cite {
+			font-size: $typo-font-size-small;
+			font-weight: normal;
+			line-height: $typo-base-line-small;
+		}
+	}
+
+
+	/* =Address
+	-----------------------------------------------------------------------------*/
+	address {
+		font-style: normal;
+	}
+
+	/* =Definition list
+	-----------------------------------------------------------------------------*/
+	dl dt {
+		font-weight: bold;
+	}
+	dd {
+		margin-left: $typo-base-line;
+	}
+
+	/* =Text-level
+	-----------------------------------------------------------------------------*/
+	cite {
+		color: rgba(0, 0, 0, .5);
+		font-style: italic;
+	}
+	small {
+		font-size: $typo-font-size-small;
+		line-height: $typo-base-line-small;
+	}
+	s,
+	del {
+		text-decoration: line-through;
+	}
+	abbr[title],
+	dfn[title] {
+	 	border-bottom: 1px dotted $typo-color-dfn-border;
+		cursor: help;
+	}
+	strong,
+	b {
+		font-weight: bold;
+	}
+	em,
+	i {
+		font-style: italic;
+	}
+	sub,
+	sup {
+		font-size: $typo-font-size-smaller;
+		line-height: 0;
+		position: relative;
+		margin-left: .2rem;
+	}
+	sup {
+		top: -.4rem;
+	}
+	sub {
+		bottom: -.2rem;
+	}
+	figcaption {
+		margin: .3rem 0;
+		font-size: $typo-font-size-small;
+		font-style: italic;
+	}
+	ins,
+	u {
+		text-decoration: underline;
+	}
+	mark {
+		background-color: $typo-color-mark-background;
+		color: $typo-color-mark;
+		text-decoration: none;
+	}
+	time {
+		font-size: $typo-font-size-smaller;
+	}
+
+	/* =Code
+	-----------------------------------------------------------------------------*/
+	pre,
+	code,
+	kbd,
+	samp,
+	var,
+	output {
+		font-size: 90%;
+		font-style: normal;
+		font-family: $typo-font-family-code;
+	}
+	pre {
+		font-size: 90%;
+		line-height: $typo-base-line;
+		color: rgba(0, 0, 0, .9);
+		overflow: auto;
+		background: $typo-color-pre-background;
+		padding: $typo-base-line;
+		word-wrap: normal;
+	}
+	td pre {
+		white-space: pre-wrap;
+		white-space: -moz-pre-wrap;
+		white-space: -pre-wrap;
+		white-space: -o-pre-wrap;
+		word-wrap: break-word;
+	}
+	mark,
+	code,
+	samp,
+	kbd {
+		padding: .2rem .4rem;
+		display: inline-block;
+		line-height: 1;
+		border-radius: $typo-global-radius;
+	}
+	code {
+		background: $typo-color-code-background;
+	}
+	pre code {
+		font-size: 100%;
+		border: none;
+		padding: 0;
+		background: none;
+		line-height: $typo-base-line;
+	}
+	var {
+		color: rgba(0, 0, 0, .5);
+	}
+	samp {
+		background: $typo-color-samp-background;
+		color: $typo-color-samp;
+	}
+	kbd {
+		background: $typo-color-kbd-background;
+		color: $typo-color-kbd;
+		white-space: nowrap;
+	}
+
+}

@@ -1,0 +1,56 @@
+<hr>
+<h2 class="h2">Form</h2>
+
+<form method="post" action="" class="form">
+    <section class="form__section">
+        <label class="label">Email</label>
+        <input type="email" name="email" class="input width_cols_6">
+    </section>
+    <section class="form__section">
+        <label class="label">Password</label>
+        <input class="input width_cols_6" type="password" name="password">
+    </section>
+    <section class="form__section">
+        <select class="select width_cols_6">
+            <option value="">Choose me</option>
+        </select>
+    </section>
+    <section class="form__section">
+        <label class="label"><input class="js-checkbox checkbox" type="checkbox"> Check me</label>
+    </section>
+    <section class="form__section">
+        <label class="label"><input class="js-radio radio" type="radio"> Radio me</label>
+    </section>
+    <section class="form__section">
+        <button class="btn btn_color_primary">Log in</button> <button class="btn">Cancel</button>
+    </section>
+</form>
+
+
+<form method="post" action="" class="form">
+    <label class="label">Phone number</label>
+    (&nbsp;<input type="text" name="phone-prefix" size="3" class="input width_cols_6">&nbsp;)&nbsp;<input type="text" name="phone-number-1" size="4" class="input">&nbsp;-&nbsp;<input class="input" type="text" name="phone-number-2" size="4">
+    &nbsp;ext:&nbsp;<input class="input" type="text" name="phone-ext" size="3">
+    <div class="form__desc">Needed if there are questions about your order</div>
+</form>
+
+<form method="post" action="" class="form">
+    <div class="row">
+        <div class="column column_cols_6">
+            <label class="label" for="email">Email</label>
+            <input id="email" class="input width_cols_12" type="email">
+        </div>
+        <div class="column column_cols_6">
+            <label class="label" for="topic">Topic</label>
+            <select id="topic" class="select width_cols_12">
+                <option value="1">Questions</option>
+                <option value="2">Admiration</option>
+                <option value="3">Support</option>
+            </select>
+        </div>
+    </div>
+    <section class="form_section">
+        <label class="label" for="message">Message</label>
+        <textarea id="message" class="textarea" rows="6"></textarea>
+    </section>
+</form>

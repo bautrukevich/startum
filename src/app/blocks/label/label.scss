@@ -1,0 +1,55 @@
+$label-color: #000;
+
+$label-required-color: #d11149;
+
+.label {
+    vertical-align: middle;
+    font-size: 94%;
+    display: block;
+    // margin-bottom: 15px;
+    white-space: nowrap;
+    color: $label-color;
+    &:hover {
+        cursor: pointer;
+    }
+    &_hide {
+        display: none;
+    }
+    &__required {
+        color: $label-required-color;
+    }
+    &_aside {
+        margin-top: 8px;
+    }
+    &_size {
+        &_big {
+            font-size: 100%;
+        }
+    }
+    // &_top {
+    //     font-size: 12px;
+    //     margin-bottom: 0;
+    //     color: rgba(107, 107, 107, 0.6);
+    // }
+    // &_inline {
+    //     display: inline-block;
+    // }
+    // &_checkbox {
+    //     margin-right: 20px;
+    // }
+    // &_radio {
+    //     margin-right: 20px;
+    // }
+    // &_aside {
+    //     color: #6B6B6B;
+    //     margin-top: 6px;
+    //     margin-bottom: 0;
+    // }
+    // &_middle {
+    //     margin-top: 6px;
+    //     margin-bottom: 0;
+    // }
+    // &_nomargin {
+    //     margin-bottom: 0;
+    // }
+}

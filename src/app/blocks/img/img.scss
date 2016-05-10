@@ -1,0 +1,56 @@
+$img-breakpoint-small: 768px;
+$img-base-line: 24px;
+
+$img-border-radius: 8px;
+
+$img-small: 120px;
+$img-medium: 160px;
+$img-big: 240px;
+
+.img {
+
+    width: 100%;
+
+    &_round {
+        border-radius: $img-border-radius;
+    }
+
+    &_width {
+        &_small {
+            width: $img-small;
+            height: auto;
+        }
+
+        &_medium {
+            width: $img-medium;
+            height: auto;
+        }
+
+        &_big {
+            width: $img-big;
+            height: auto;
+        }
+    }
+
+    &_height {
+        &_small {
+            width: auto;
+            height: $img-small;
+        }
+
+        &_medium {
+            width: auto;
+            height: $img-medium;
+        }
+
+        &_big {
+            width: auto;
+            height: $img-big;
+        }
+    }
+
+    &_pause {
+        margin-bottom: $img-base-line;
+    }
+
+}

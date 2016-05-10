@@ -1,0 +1,30 @@
+$link-color: #2A8AEA;
+$link-color-hover: #e21e3b;
+
+a,
+.link {
+	color: $link-color;
+	text-decoration: none;
+	border-bottom: 1px solid rgba(red($link-color), green($link-color), blue($link-color), 0.3);
+	&:hover {
+		color: $link-color-hover;
+		text-decoration: none;
+		border-bottom: 1px solid rgba(red($link-color-hover), green($link-color-hover), blue($link-color-hover), 0.3);
+	}
+	&_white {
+		color: rgba(red(#fff), green(#fff), blue(#fff), 0.8);
+		border-bottom: 1px solid rgba(red(#fff), green(#fff), blue(#fff), 0.3);
+		&:hover {
+			color: #fff;
+			border-bottom: 1px solid rgba(red(#fff), green(#fff), blue(#fff), 0.3);
+		}
+	}
+	&_pseudo {
+		text-decoration: none;
+		border-bottom: 1px dashed rgba(red($link-color), green($link-color), blue($link-color), 0.3);
+		&:hover {
+			text-decoration: none;
+			border-bottom: 1px dashed rgba(red($link-color-hover), green($link-color-hover), blue($link-color-hover), 0.3);
+		}
+	}
+}

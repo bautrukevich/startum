@@ -1,0 +1,107 @@
+$text-font-size-big: 120%; // 18px or 120% by default
+$text-font-size-small: 86%; // 13px or 86% by default
+$text-font-size-smaller: 74%; // 11px or 74%  by default;
+
+$text-base-line: 24px;
+$text-base-line-big: 28px; // 28px by default
+$text-base-line-small: 20px; // 20px by default
+$text-base-line-smaller: 16px; // 16px by default
+
+$text-breakpoint-small: 768px;
+
+$text-font-family-light: "proxima-nova", Helvetica, Tahoma, sans-serif !default;
+$text-font-family-regular: "proxima-nova", Helvetica, Tahoma, sans-serif !default;
+$text-font-family-medium: "proxima-nova", Helvetica, Tahoma, sans-serif !default;
+$text-font-family-bold: "proxima-nova", Helvetica, Tahoma, sans-serif !default;
+
+@mixin light {
+    font-family: $text-font-family-light;
+    font-style: normal;
+    font-weight: 300;
+}
+
+@mixin regular {
+    font-family: $text-font-family-regular;
+    font-style: normal;
+    font-weight: 400;
+}
+
+@mixin medium {
+    font-family: $text-font-family-medium;
+    font-style: normal;
+    font-weight: 500;
+}
+
+@mixin bold {
+    font-family: $text-font-family-bold;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.text {
+	&_size {
+		&_lead {
+			font-size: $text-font-size-big;
+			line-height: $text-base-line-big;
+		}
+		&_big {
+			font-size: $text-font-size-big;
+			line-height: $text-base-line-big;
+		}
+		&_small {
+			font-size: $text-font-size-small;
+			line-height: $text-base-line-small;
+		}
+		&_smaller {
+			font-size: $text-font-size-smaller;
+			line-height: $text-base-line-smaller;
+		}
+	}
+	&_align {
+		&_right {
+			text-align: right;
+		}
+		&_center {
+			text-align: center;
+		}
+	}
+	&_weight {
+		&_light {
+			@include light();
+		}
+		&_regular {
+			@include regular();
+		}
+		&_medium {
+			@include medium();
+		}
+		&_bold {
+			@include bold();
+		}
+	}
+	&_color {
+		&_white {
+			color: #fff;
+		}
+        &_gray {
+            color: rgba(0, 0, 0, 0.5);
+        }
+	}
+    &_pause {
+        margin-bottom: $text-base-line / 2;
+    }
+}
+
+@media (max-width: $text-breakpoint-small) {
+	.text {
+		&_media {
+			&_right {
+				text-align: right !important;
+			}
+			&_center {
+				text-align: center !important;
+			}
+		}
+	}
+
+}

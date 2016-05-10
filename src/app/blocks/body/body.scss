@@ -1,0 +1,9 @@
+$body-back-color-gray: #f2f4f6;
+
+.body {
+    &_back {
+        &_gray {
+            background-color: $body-back-color-gray;
+        }
+    }
+}

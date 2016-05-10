@@ -1,0 +1,189 @@
+// Breakpoint
+$input-breakpoint-small: 768px;
+
+$input-base-line: 24px;
+
+$input-font-family: "proxima-nova", Helvetica, Tahoma, sans-serif !default;
+
+// Font size
+$input-font-size-normal: 1.4rem; // 14px or 94% by default
+$input-font-size-small: 1.2rem; // 12px or 80% by default
+$input-font-size-big: 1.8rem; // 18px or 120% by default
+
+// Input Padding
+$input-padding: .9rem 1rem;
+$input-padding-big: 1.5rem 1.2rem;
+$input-padding-small: .7rem 1rem;
+
+// Controls Height
+$input-height: 40px;
+$input-height-small: 32px;
+$input-height-big: 56px;
+
+// Input Border Style
+$input-border-size: 1px;
+$input-background-color: #fff;
+$input-border-color: #dfdfdf;
+
+// Input Focus
+$input-background-color-focus: #fff;
+$input-border-color-focus: #222;
+
+// Input Color
+$input-color: rgba(0, 0, 0, .85);
+
+// Input Append & Prepend
+$input-append-background: #efefef;
+$input-append-color: rgba(0, 0, 0, .6);
+
+// Radius
+$input-radius: 2px;
+
+@mixin placeholder($placeholder-color, $transition: 'fadeout') {
+
+    @if ($transition == 'fadeout') {
+
+        /* fadeouts of placeholder in focus */
+        &::-webkit-input-placeholder       { opacity: 1; transition: opacity 0.3s ease; color: $placeholder-color; text-overflow: ellipsis; }
+        &::-moz-placeholder                { opacity: 1; transition: opacity 0.3s ease; color: $placeholder-color; text-overflow: ellipsis; }
+        &:-moz-placeholder                 { opacity: 1; transition: opacity 0.3s ease; color: $placeholder-color; text-overflow: ellipsis; }
+        &:-ms-input-placeholder            { opacity: 1; transition: opacity 0.3s ease; color: $placeholder-color; text-overflow: ellipsis; }
+        &:focus::-webkit-input-placeholder { opacity: 0; transition: opacity 0.3s ease; }
+        &:focus::-moz-placeholder          { opacity: 0; transition: opacity 0.3s ease; }
+        &:focus:-moz-placeholder           { opacity: 0; transition: opacity 0.3s ease; }
+        &:focus:-ms-input-placeholder      { opacity: 0; transition: opacity 0.3s ease; }
+
+    } @elseif ($transition == 'shift-right') {
+
+        /* shift right placeholder in focus */
+        &::-webkit-input-placeholder       { text-indent: 0px;   transition: text-indent 0.3s ease; color: $placeholder-color; text-overflow: ellipsis; }
+        &::-moz-placeholder                { text-indent: 0px;   transition: text-indent 0.3s ease; color: $placeholder-color; text-overflow: ellipsis; }
+        &:-moz-placeholder                 { text-indent: 0px;   transition: text-indent 0.3s ease; color: $placeholder-color; text-overflow: ellipsis; }
+        &:-ms-input-placeholder            { text-indent: 0px;   transition: text-indent 0.3s ease; color: $placeholder-color; text-overflow: ellipsis; }
+        &:focus::-webkit-input-placeholder { text-indent: 500px; transition: text-indent 0.3s ease; }
+        &:focus::-moz-placeholder          { text-indent: 500px; transition: text-indent 0.3s ease; }
+        &:focus:-moz-placeholder           { text-indent: 500px; transition: text-indent 0.3s ease; }
+        &:focus:-ms-input-placeholder      { text-indent: 500px; transition: text-indent 0.3s ease; }
+
+    } @elseif ($transition == 'shift-down') {
+
+        /* shift down placeholder in focus */
+        &::-webkit-input-placeholder       { line-height: 20px;  transition: line-height 0.5s ease; color: $placeholder-color; text-overflow: ellipsis; }
+        &::-moz-placeholder                { line-height: 20px;  transition: line-height 0.5s ease; color: $placeholder-color; text-overflow: ellipsis; }
+        &:-moz-placeholder                 { line-height: 20px;  transition: line-height 0.5s ease; color: $placeholder-color; text-overflow: ellipsis; }
+        &:-ms-input-placeholder            { line-height: 20px;  transition: line-height 0.5s ease; color: $placeholder-color; text-overflow: ellipsis; }
+        &:focus::-webkit-input-placeholder { line-height: 100px; transition: line-height 0.5s ease; }
+        &:focus::-moz-placeholder          { line-height: 100px; transition: line-height 0.5s ease; }
+        &:focus:-moz-placeholder           { line-height: 100px; transition: line-height 0.5s ease; }
+        &:focus:-ms-input-placeholder      { line-height: 100px; transition: line-height 0.5s ease; }
+
+    }
+}
+
+.input {
+    font-family: $input-font-family;
+    font-size: $input-font-size-normal;
+	padding: $input-padding;
+	line-height: 1;
+	height: $input-height;
+	outline: none;
+	background: $input-background-color;
+	border: $input-border-size solid $input-border-color;
+	border-radius: $input-radius;
+	margin-bottom: 0;
+	color: $input-color;
+    -webkit-appearance: none;
+
+    // @include placeholder('darkgray');
+
+    // &::-webkit-input-placeholder       { font-size: $input-font-size-normal + 0.2rem; }
+    // &::-moz-placeholder                { font-size: $input-font-size-normal + 0.2rem; }
+    // &:-moz-placeholder                 { font-size: $input-font-size-normal + 0.2rem; }
+    // &:-ms-input-placeholder            { font-size: $input-font-size-normal + 0.2rem; }
+    // &:focus::-webkit-input-placeholder { font-size: $input-font-size-normal + 0.2rem; }
+    // &:focus::-moz-placeholder          { font-size: $input-font-size-normal + 0.2rem; }
+    // &:focus:-moz-placeholder           { font-size: $input-font-size-normal + 0.2rem; }
+    // &:focus:-ms-input-placeholder      { font-size: $input-font-size-normal + 0.2rem; }
+
+    &:focus {
+		outline: none;
+		background: $input-background-color-focus;
+		border: $input-border-size solid $input-border-color-focus;
+	}
+
+	&_disabled {
+		resize: none;
+		opacity: 0.55;
+		cursor: default;
+	}
+
+    &_size {
+        &_small {
+            font-size: $input-font-size-small;
+        	padding: $input-padding-small;
+        	height: $input-height-small;
+
+            // &::-webkit-input-placeholder       { font-size: $input-font-size-small + 0.2rem; }
+            // &::-moz-placeholder                { font-size: $input-font-size-small + 0.2rem; }
+            // &:-moz-placeholder                 { font-size: $input-font-size-small + 0.2rem; }
+            // &:-ms-input-placeholder            { font-size: $input-font-size-small + 0.2rem; }
+            // &:focus::-webkit-input-placeholder { font-size: $input-font-size-small + 0.2rem; }
+            // &:focus::-moz-placeholder          { font-size: $input-font-size-small + 0.2rem; }
+            // &:focus:-moz-placeholder           { font-size: $input-font-size-small + 0.2rem; }
+            // &:focus:-ms-input-placeholder      { font-size: $input-font-size-small + 0.2rem; }
+        }
+        &_big {
+            font-size: $input-font-size-big;
+        	padding: $input-padding-big;
+        	height: $input-height-big;
+
+            // &::-webkit-input-placeholder       { font-size: $input-font-size-big + 0.4rem; }
+            // &::-moz-placeholder                { font-size: $input-font-size-big + 0.4rem; }
+            // &:-moz-placeholder                 { font-size: $input-font-size-big + 0.4rem; }
+            // &:-ms-input-placeholder            { font-size: $input-font-size-big + 0.4rem; }
+            // &:focus::-webkit-input-placeholder { font-size: $input-font-size-big + 0.4rem; }
+            // &:focus::-moz-placeholder          { font-size: $input-font-size-big + 0.4rem; }
+            // &:focus:-moz-placeholder           { font-size: $input-font-size-big + 0.4rem; }
+            // &:focus:-ms-input-placeholder      { font-size: $input-font-size-big + 0.4rem; }
+        }
+    }
+
+    &_pause {
+        margin-bottom: $input-base-line / 2;
+    }
+
+    &_end {
+        margin-bottom: 0;
+    }
+
+    &.width_cols_1 { @include col(1); }
+    &.width_cols_2 { @include col(2); }
+    &.width_cols_3 { @include col(3); }
+    &.width_cols_4 { @include col(4); }
+    &.width_cols_5 { @include col(5); }
+    &.width_cols_6 { @include col(6); }
+    &.width_cols_7 { @include col(7); }
+    &.width_cols_8 { @include col(8); }
+    &.width_cols_9 { @include col(9); }
+    &.width_cols_10 { @include col(10); }
+    &.width_cols_11 { @include col(11); }
+    &.width_cols_12 { width: 100%; }
+}
+
+
+@media (max-width: $input-breakpoint-small) {
+    .input {
+        &.width_cols_1,
+        &.width_cols_2,
+        &.width_cols_3,
+        &.width_cols_4,
+        &.width_cols_5,
+        &.width_cols_6,
+        &.width_cols_7,
+        &.width_cols_8,
+        &.width_cols_9,
+        &.width_cols_10,
+        &.width_cols_11,
+        &.width_cols_12 { width: 100%; }
+    }
+}

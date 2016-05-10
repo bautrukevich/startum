@@ -1,0 +1,30 @@
+$form-base-line: 24px;
+$form-base-line-small: 20px;
+
+.form {
+	margin-bottom: $form-base-line;
+
+	&_inline {
+
+		& .textarea,
+		& .select,
+		& .input {
+			width: auto;
+			display: inline-block;
+		}
+
+	}
+
+    &__section {
+        margin-bottom: $form-base-line;
+    }
+
+	&__desc {
+		text-transform: none;
+		margin-top: 4px;
+		color: rgba(0, 0, 0, .5);
+		font-size: 12px;
+		line-height: $form-base-line-small;
+		font-weight: normal;
+	}
+}

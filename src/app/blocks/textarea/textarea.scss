@@ -1,0 +1,145 @@
+$textarea-breakpoint-small: 768px;
+
+$textarea-base-line: 24px;
+
+$textarea-font-family: "proxima-nova", Helvetica, Tahoma, sans-serif !default;
+
+// Font size
+$textarea-font-size-normal: 1.5rem; // 14px or 94% by default
+$textarea-font-size-small: 1.2rem; // 12px or 80% by default
+$textarea-font-size-big: 1.8rem; // 18px or 120% by default
+
+// textarea Padding
+$textarea-padding: .9rem 1rem;
+$textarea-padding-big: 1.5rem 1.2rem;
+$textarea-padding-small: .7rem 1rem;
+
+// Controls Height
+$textarea-height: 40px;
+$textarea-height-small: 32px;
+$textarea-height-big: 56px;
+
+// textarea Border Style
+$textarea-border-size: 1px;
+$textarea-background-color: #fff;
+$textarea-border-color: #dfdfdf;
+
+// textarea Focus
+$textarea-background-color-focus: #fff;
+$textarea-border-color-focus: #222;
+
+// textarea Color
+$textarea-color: rgba(0, 0, 0, .85);
+
+// Radius
+$textarea-radius: 2px;
+
+// Placeholder
+$textarea-placeholder-color: darkgray;
+
+$grid-columns: 12;
+
+@mixin col($num) {
+	width: (100%/$grid-columns*$num);
+}
+
+@mixin placeholder($placeholder-color, $transition: 'fadeout') {
+
+    @if ($transition == 'fadeout') {
+
+        /* fadeouts of placeholder in focus */
+        &::-webkit-input-placeholder       { opacity: 1; transition: opacity 0.3s ease; color: $placeholder-color; text-overflow: ellipsis; }
+        &::-moz-placeholder                { opacity: 1; transition: opacity 0.3s ease; color: $placeholder-color; text-overflow: ellipsis; }
+        &:-moz-placeholder                 { opacity: 1; transition: opacity 0.3s ease; color: $placeholder-color; text-overflow: ellipsis; }
+        &:-ms-input-placeholder            { opacity: 1; transition: opacity 0.3s ease; color: $placeholder-color; text-overflow: ellipsis; }
+        &:focus::-webkit-input-placeholder { opacity: 0; transition: opacity 0.3s ease; }
+        &:focus::-moz-placeholder          { opacity: 0; transition: opacity 0.3s ease; }
+        &:focus:-moz-placeholder           { opacity: 0; transition: opacity 0.3s ease; }
+        &:focus:-ms-input-placeholder      { opacity: 0; transition: opacity 0.3s ease; }
+
+    } @elseif ($transition == 'shift-right') {
+
+        /* shift right placeholder in focus */
+        &::-webkit-input-placeholder       { text-indent: 0px;   transition: text-indent 0.3s ease; color: $placeholder-color; text-overflow: ellipsis; }
+        &::-moz-placeholder                { text-indent: 0px;   transition: text-indent 0.3s ease; color: $placeholder-color; text-overflow: ellipsis; }
+        &:-moz-placeholder                 { text-indent: 0px;   transition: text-indent 0.3s ease; color: $placeholder-color; text-overflow: ellipsis; }
+        &:-ms-input-placeholder            { text-indent: 0px;   transition: text-indent 0.3s ease; color: $placeholder-color; text-overflow: ellipsis; }
+        &:focus::-webkit-input-placeholder { text-indent: 500px; transition: text-indent 0.3s ease; }
+        &:focus::-moz-placeholder          { text-indent: 500px; transition: text-indent 0.3s ease; }
+        &:focus:-moz-placeholder           { text-indent: 500px; transition: text-indent 0.3s ease; }
+        &:focus:-ms-input-placeholder      { text-indent: 500px; transition: text-indent 0.3s ease; }
+
+    } @elseif ($transition == 'shift-down') {
+
+        /* shift down placeholder in focus */
+        &::-webkit-input-placeholder       { line-height: 20px;  transition: line-height 0.5s ease; color: $placeholder-color; text-overflow: ellipsis; }
+        &::-moz-placeholder                { line-height: 20px;  transition: line-height 0.5s ease; color: $placeholder-color; text-overflow: ellipsis; }
+        &:-moz-placeholder                 { line-height: 20px;  transition: line-height 0.5s ease; color: $placeholder-color; text-overflow: ellipsis; }
+        &:-ms-input-placeholder            { line-height: 20px;  transition: line-height 0.5s ease; color: $placeholder-color; text-overflow: ellipsis; }
+        &:focus::-webkit-input-placeholder { line-height: 100px; transition: line-height 0.5s ease; }
+        &:focus::-moz-placeholder          { line-height: 100px; transition: line-height 0.5s ease; }
+        &:focus:-moz-placeholder           { line-height: 100px; transition: line-height 0.5s ease; }
+        &:focus:-ms-input-placeholder      { line-height: 100px; transition: line-height 0.5s ease; }
+
+    }
+}
+
+.textarea {
+	font-family: $textarea-font-family;
+    font-size: $textarea-font-size-normal;
+    padding: $textarea-padding;
+    height: auto;
+	line-height: 1.5;
+    outline: none;
+    background: $textarea-background-color;
+    border: $textarea-border-size solid $textarea-border-color;
+    border-radius: $textarea-radius;
+    margin-bottom: 0;
+    color: $textarea-color;
+    -webkit-appearance: none;
+    width: 100%;
+    display: block;
+	@include placeholder($textarea-placeholder-color);
+
+	&::-webkit-input-placeholder       { font-size: $textarea-font-size-normal; }
+	&::-moz-placeholder                { font-size: $textarea-font-size-normal; }
+	&:-moz-placeholder                 { font-size: $textarea-font-size-normal; }
+	&:-ms-input-placeholder            { font-size: $textarea-font-size-normal; }
+	&:focus::-webkit-input-placeholder { font-size: $textarea-font-size-normal; }
+	&:focus::-moz-placeholder          { font-size: $textarea-font-size-normal; }
+	&:focus:-moz-placeholder           { font-size: $textarea-font-size-normal; }
+	&:focus:-ms-input-placeholder      { font-size: $textarea-font-size-normal; }
+
+    &:focus {
+        outline: none;
+        background: $textarea-background-color-focus;
+        border: $textarea-border-size solid $textarea-border-color-focus;
+    }
+
+    &_disabled {
+        resize: none;
+        opacity: 0.55;
+        cursor: default;
+    }
+
+	&_pause {
+        margin-bottom: $input-base-line / 2;
+    }
+
+    &_end {
+        margin-bottom: 0;
+    }
+
+    &.width_cols_1 { @include col(1); }
+    &.width_cols_2 { @include col(2); }
+    &.width_cols_3 { @include col(3); }
+    &.width_cols_4 { @include col(4); }
+    &.width_cols_5 { @include col(5); }
+    &.width_cols_6 { @include col(6); }
+    &.width_cols_7 { @include col(7); }
+    &.width_cols_8 { @include col(8); }
+    &.width_cols_9 { @include col(9); }
+    &.width_cols_10 { @include col(10); }
+    &.width_cols_11 { @include col(11); }
+    &.width_cols_12 { width: 100%; }
+}

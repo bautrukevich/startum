@@ -1,0 +1,26 @@
+{
+  "name": "startum",
+  "description": "Easy to start your frontend app",
+  "main": "gulpfile.js",
+  "authors": [
+    "Siarhei Bautrukevich"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "^2.2.1",
+    "iCheck": "icheck#^1.0.2",
+    "parsleyjs": "^2.3.5",
+    "hint.css": "^2.2.1"
+  }
+}

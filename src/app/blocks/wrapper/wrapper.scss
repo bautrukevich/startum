@@ -1,0 +1,58 @@
+$wrapper-width: 1200px;
+
+$wrapper-width-medium: 1100px;
+
+$wrapper-padding: 24px;
+$wrapper-padding-medium: 48px;
+$wrapper-padding-big: 96px;
+
+$wrapper-padding-top: 59px + $wrapper-padding * 2;
+
+$wrapper-border-color-gray: #9e9e9f;
+$wrapper-border-color-white: #fff;
+$wrapper-border-color-primary: #277FDA;
+$wrapper-border-color-success: #25c782;
+$wrapper-border-radius: 4px;
+
+$wrapper-breakpoint-small: 768px;
+
+.wrapper {
+    max-width: $wrapper-width;
+    margin: 0 auto;
+    padding: $wrapper-padding;
+    &_width {
+        &_medium {
+            max-width: $wrapper-width-medium;
+        }
+    }
+    &_top {
+        padding: $wrapper-padding-top $wrapper-padding $wrapper-padding;
+    }
+    &_border {
+        border: 1px solid $wrapper-border-color-gray;
+        border-radius: 4px;
+    }
+    &_form {
+        background: #fff;
+        width: auto;
+        padding: $wrapper-padding $wrapper-padding-medium;
+        border-radius: $wrapper-border-radius;
+    }
+    &_border {
+        &_primary {
+            border: 1px solid $wrapper-border-color-primary;
+        }
+        &_success {
+            border: 1px solid $wrapper-border-color-success;
+        }
+    }
+    &_back {
+        &_gray {
+            background-color: #f6f8f9;
+        }
+    }
+}
+
+@media (max-width: $heading-breakpoint-small) {
+
+}

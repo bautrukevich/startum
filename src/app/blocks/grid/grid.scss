@@ -1,0 +1,322 @@
+// Breakpoints
+$grid-breakpoint-small: 768px;
+$grid-breakpoint-medium: 1024px;
+$grid-breakpoint-large: 1200px;
+
+// Grid
+$grid-base: 24;
+$grid-base-line: $grid-base + 0px;
+
+$grid-columns: 12;
+$grid-width: 1128px; // pixels
+$grid-gutter: $grid-base;
+$grid-gutter-px: $grid-base-line;
+$grid-gap: ($grid-gutter)/($grid-width/100);
+
+// Mixins
+
+@mixin calc($property, $expression) {
+  #{$property}: -webkit-calc(#{$expression});
+  #{$property}: calc(#{$expression});
+}
+
+// Grid
+@mixin row() {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: nowrap;
+	-ms-flex-wrap: nowrap;
+	flex-wrap: nowrap;
+	-webkit-flex-basis: 100%;
+	-ms-flex-basis: 100%;
+	flex-basis: 100%;
+
+	@media (max-width: $grid-breakpoint-small) {
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+
+	}
+}
+
+@mixin offset($num) {
+    $grid-columns-offset-width: 100%/$grid-columns*$num;
+    margin-left: calc(#{$grid-columns-offset-width} + #{$grid-gutter-px}) !important;
+}
+
+@mixin col($num) {
+	width: (100%/$grid-columns*$num);
+}
+@mixin col-fixed($width) {
+	-webkit-flex: 0 0 $width;
+	-ms-flex: 0 0 $width;
+	flex: 0 0 $width;
+	@media (max-width: $grid-breakpoint-small) {
+		-webkit-flex: 0;
+		-ms-flex: 0;
+		flex: 0;
+		width: 100%;
+	}
+}
+
+@mixin vertical-align {
+    display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-align-items: center;
+	-ms-align-items: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	-ms-justify-content: center;
+	justify-content: center;
+}
+
+@mixin media-grid($num) {
+	-webkit-column-count: $num;
+	-moz-column-count: $num;
+	column-count: $num;
+	-webkit-column-gap: $grid-gutter-px;
+	-moz-column-gap: $grid-gutter-px;
+	column-gap: $grid-gutter-px;
+
+	& > div {
+		display: inline-block;
+		width: 100%;
+	}
+
+	@media (max-width: $grid-breakpoint-small) {
+		-webkit-column-count: 1;
+		-moz-column-count: 1;
+		column-count: 1;
+	}
+}
+
+/* =Grid
+-----------------------------------------------------------------------------*/
+.row {
+
+	@include row;
+
+	margin-bottom: $grid-base-line;
+
+	& .column {
+
+		margin: 0;
+		padding: 0;
+		margin-right: $grid-gutter-px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+	&_end {
+		margin-bottom: 0;
+	}
+	&_split {
+		.column {
+			margin-right: 0;
+		}
+	}
+	&_centered {
+		-webkit-justify-content: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+	}
+	&_around {
+		-webkit-justify-content: space-around;
+		-ms-flex-pack: distribute;
+		justify-content: space-around;
+	}
+	&_between {
+		-webkit-justify-content: space-between;
+		-ms-flex-pack: justify;
+		justify-content: space-between;
+	}
+
+    &_aligner {
+        @include vertical-align();
+        height: 500px;
+        margin: 24px 0;
+    }
+
+}
+
+.column {
+
+    &_cols {
+        &_1 {
+    		@include col(1);
+    	}
+    	&_2 {
+    		@include col(2);
+    	}
+    	&_3 {
+    		@include col(3);
+    	}
+    	&_4 {
+    		@include col(4);
+    	}
+    	&_5 {
+    		@include col(5);
+    	}
+    	&_6 {
+    		@include col(6);
+    	}
+    	&_7 {
+    		@include col(7);
+    	}
+    	&_8 {
+    		@include col(8);
+    	}
+    	&_9 {
+    		@include col(9);
+    	}
+    	&_10 {
+    		@include col(10);
+    	}
+    	&_11 {
+    		@include col(11);
+    	}
+    	&_12 {
+    		width: 100%;
+    	}
+    }
+
+    &_offset {
+        &_1 {
+    		@include offset(1);
+    	}
+    	&_2 {
+    		@include offset(2);
+    	}
+    	&_3 {
+    		@include offset(3);
+    	}
+    	&_4 {
+    		@include offset(4);
+    	}
+    	&_5 {
+    		@include offset(5);
+    	}
+    	&_6 {
+    		@include offset(6);
+    	}
+    	&_7 {
+    		@include offset(7);
+    	}
+    	&_8 {
+    		@include offset(8);
+    	}
+    	&_9 {
+    		@include offset(9);
+    	}
+    	&_10 {
+    		@include offset(10);
+    	}
+    	&_11 {
+    		@include offset(11);
+    	}
+    }
+}
+
+.width {
+    &_cols {
+        &_1 { @include col(1); }
+        &_2 { @include col(2); }
+        &_3 { @include col(3); }
+        &_4 { @include col(4); }
+        &_5 { @include col(5); }
+        &_6 { @include col(6); }
+        &_7 { @include col(7); }
+        &_8 { @include col(8); }
+        &_9 { @include col(9); }
+        &_10 { @include col(10); }
+        &_11 { @include col(11); }
+        &_12 { width: 100%; }
+    }
+}
+
+
+@media (max-width: $grid-breakpoint-small) {
+
+	.row {
+
+		margin-bottom: 0;
+
+		& .column_offset {
+            &_1, &_2, &_3, &_4, &_5, &_6, &_7, &_8, &_9, &_10, &_11 {
+                margin-left: 0;
+            }
+		}
+		& .column_cols {
+            &_1, &_2, &_3, &_4, &_5, &_6, &_7, &_8, &_9, &_10, &_11, &_12 {
+                margin-right: 0;
+    			width: 100%;
+    			margin-bottom: $grid-base-line;
+            }
+		}
+
+		& .row .column:last-child {
+			margin-bottom: 0;
+		}
+
+        &_aligner {
+            height: auto;
+        }
+
+	}
+
+	.width-1,
+	.width-2,
+	.width-3,
+	.width-4,
+	.width-5,
+	.width-6,
+	.width-7,
+	.width-8,
+	.width-9,
+	.width-10,
+	.width-11,
+	.width-12 { width: 100%; }
+}
+
+#fixed-col {
+    @include col-fixed(200px);
+}
+
+#aligner {
+    @include vertical-align();
+
+    height: 500px;
+    margin: 24px 0;
+    border: 1px solid #eee;
+
+    & div {
+        max-width: 50%;
+        background: #eee;
+        padding: 24px;
+    }
+}
+
+#media-grid {
+
+    @include media-grid(2);
+
+    & > div {
+      margin: 0 auto 24px;
+      padding: 24px;
+      background: #ddd;
+      text-align: center;
+    }
+    & > div:nth-child(2n) {
+      height: 200px;
+    }
+    & > div:nth-child(5n) {
+      height: 130px;
+    }
+}

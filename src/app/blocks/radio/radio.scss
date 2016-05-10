@@ -1,0 +1,44 @@
+@mixin retina-image($file, $type, $w: auto, $h: auto) {
+    background-image: url($file + '.' + $type);
+    @media
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (   min--moz-device-pixel-ratio: 2),
+    only screen and (     -o-min-device-pixel-ratio: 2/1),
+    only screen and (        min-device-pixel-ratio: 2),
+    only screen and (                min-resolution: 192dpi),
+    only screen and (                min-resolution: 2dppx) {
+        background-image: url($file + '@2x.' + $type);
+        background-size: $w $h;
+    }
+}
+
+.radio {
+    display: inline-block;
+    *display: inline;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    border: none;
+    cursor: pointer;
+
+    background-position: 0 0;
+    margin-right: 8px;
+
+    &_checked {
+        background-position: -22px 0;
+    }
+    &_disabled {
+        background-position: -44px 0;
+        cursor: default;
+    }
+    &_checked.radio_disabled {
+        background-position: -66px 0;
+    }
+    &_color {
+        &_primary {
+            @include retina-image("../img/radio_blue", "png", 88px, 22px);
+        }
+    }
+}
