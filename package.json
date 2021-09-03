@@ -17,7 +17,7 @@
     "gulp-deploy-git": "^0.5.2",
     "gulp-file-include": "^0.13.7",
     "gulp-html-prettify": "0.0.1",
-    "gulp-if": "^2.0.0",
+    "gulp-if": "3.0.0",
     "gulp-imagemin": "^2.4.0",
     "gulp-livereload": "^3.8.1",
     "gulp-newer": "^1.1.0",
