@@ -4,7 +4,7 @@
   "description": "Easy to start your frontend app",
   "main": "gulpfile.js",
   "dependencies": {
-    "autoprefixer": "^6.2.3",
+    "autoprefixer": "^10.0.0",
     "cssnano": "^3.4.0",
     "gulp-sass": "^2.1.1"
   },
